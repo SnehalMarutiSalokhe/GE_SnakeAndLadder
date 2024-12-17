@@ -7,25 +7,27 @@ public class Main {
         System.out.println("Starting position of the player: " + startPosition);
 
         Random random = new Random();
-        int dieRoll = random.nextInt(6) + 1;
-        System.out.println("Die rolled: " + dieRoll);
+        final int WINNING_POSITION = 100;
 
-        int option = random.nextInt(3);
-        // 0: No Play, 1: Ladder, 2: Snake
-        switch (option) {
-            case 0:
-                System.out.println("Option: No Play. Player stays at position: " + position);
-                break;
-            case 1:
-                position += dieRoll;
-                System.out.println("Option: Ladder. Player moves to position: " + position);
-                break;
-            case 2:
-                position -= dieRoll;
-                if (position < 0) position = 0;
-                System.out.println("Option: Snake. Player moves to position: " + position);
-                break;
+        while (position < WINNING_POSITION) {
+            int dieRoll = random.nextInt(6) + 1;
+            int option = random.nextInt(3);
+
+            switch (option) {
+                case 0:
+                    break;
+                case 1:
+                    position += dieRoll;
+                    break;
+                case 2:
+                    position -= dieRoll;
+                    if (position < 0) position = 0;
+                    break;
+            }
+            System.out.println("Current position: " + position);
         }
-    }
+        System.out.println("Player has won the game!");
+        }
+
 }
 
