@@ -17,6 +17,7 @@ public class Main {
                 case 0:
                     break;
                 case 1:
+                    if (position + dieRoll <= WINNING_POSITION)
                     position += dieRoll;
                     break;
                 case 2:
